@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Pedicter</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    #container{
+            width:60%;
+            border:3px solid black;
+            margin: 150px auto;
+            border-radius: 8px;
+        }
+        #container h1{
+            background-color: blueviolet;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin:0px;
+            border-radius: 7px 7px 0px 0px;
+            text-align: center;
+        }
+        #container form{
+            text-align: center;           
+        }
+        .textbox{
+            margin-top:30px;
+            width:50%;
+            padding: 10px;
+
+        }
+        #container form button{
+            width:150px;
+            background-color: lightseagreen;
+            color: white;
+            border:none;
+            margin-top: 35px;
+            padding:10px;
+            
+        }
+        #container2{
+            width:60%;
+            border:3px solid black;
+            margin: 150px auto;
+            border-radius: 8px;
+        }
+        #container2 h1{
+            background-color: blueviolet;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin:0px;
+            border-radius: 7px 7px 0px 0px;
+            text-align: center;
+        }
+
+
+
+  </style>
+  
+</head>
+
+<body>
+ <div class="login">
+    <div id="container">
+	<h1>Lung cancer Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" class="textbox"name="Age" placeholder="Age" required="required" />
+        <input type="text" class="textbox"name="Smokes" placeholder="Smokes" required="required" />
+		<input type="text" class="textbox"name="AreaQ" placeholder="AreaQ" required="required" />
+		<input type="text" class="textbox"name="Alkhol" placeholder="Alkhol" required="required" />
+
+        <button type="submit" >Predict</button>
+    </form>
+    </div>
+
+   <br>
+   <br>
+   <div id="container2">
+    <h1>Result</h1>
+   <h2>{{ prediction_text }}</h2>
+   </div>
+
+
+ </div>
+
+
+</body>
+</html>
